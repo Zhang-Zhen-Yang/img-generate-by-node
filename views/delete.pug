@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+    textarea(id="area", name="", cols="30", rows="10", style="width: 861px;border:1px solid #aaaaaa;box-sizing:border-box;")
+    p
+    div(style="width:861px;height: 50px;")
+        button(id="submit", style="background-color: #1284e7;color: white;float:right;font-size: 16px;outline:none;border:none;padding: 5px 8px;cursor:pointer;") 删除
+    p
+    script(src='javascripts/jquery-1.11.0.min.js')
+    script(src='javascripts/delete.js')

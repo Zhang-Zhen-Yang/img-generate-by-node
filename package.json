@@ -1,0 +1,24 @@
+{
+  "name": "myapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "hotnode ./bin/www",
+    "pm2": "pm2 start ./bin/www --name smartTag",
+    "stop": "pm2 stop smartTag",
+    "delete": "pm2 delete smartTag",
+    "monit": "pm2 monit"
+  },
+  "dependencies": {
+    "canvas": "^2.4.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "node-blob": "0.0.2",
+    "pug": "2.0.0-beta11",
+    "request": "^2.88.0",
+    "uuid": "^3.3.2"
+  }
+}

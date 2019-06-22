@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" onchange="change(this)">
+    <img src="http://localhost:3000/generateActionSingle/%7B%22canvasWidth%22%3A400%2C%22canvasHeight%22%3A700%2C%22layers%22%3A%5B%7B%22type%22%3A%22pic%22%2C%22image%22%3A%22https%3A%2F%2Fimgs.aixifan.com%2Fcontent%2F2019_6_2%2F1.559475156410427E9.jpeg%22%2C%22left%22%3A0%2C%22top%22%3A0%2C%22width%22%3A400%2C%22height%22%3A%22auto%22%7D%2C%7B%22type%22%3A%22text%22%2C%22words%22%3A%22%E4%BB%A4%E5%92%8C%20%24%22%2C%22left%22%3A0%2C%22top%22%3A150%2C%22width%22%3A300%2C%22height%22%3A100%2C%22rotateZ%22%3A0%2C%22opacity%22%3A0.9%2C%22color%22%3A%22%233E54C3%22%2C%22textAlign%22%3A%22left%22%2C%22lineHeight%22%3A1%2C%22letterSpacing%22%3A3%2C%22fontSize%22%3A50%2C%22fontFamily%22%3A%22HappyZcool%22%2C%22fontStyle%22%3A%22normal%22%2C%22fontWeight%22%3A%22bold%22%2C%22textDecorate%22%3A%22underline%22%2C%22shadowColor%22%3A%22%23000000%22%2C%22shadowBlur%22%3A0%2C%22strokeStyle%22%3A%22%23A0A94D%22%2C%22lineWidth%22%3A0%7D%5D%7D" alt="">
+    <canvas id="canvas">
+
+    </canvas>
+    <script>
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+        var img = new Image();
+        // img.src="https://imgs.aixifan.com/content/2019_6_2/1.559475156410427E9.jpeg";
+        img.src="http://localhost:3000/image/t2019-6-11-10-52-uuidb8977947-985c-466f-ae53-fbd78a5fbcca-v100-s400x700.png";
+        img.crossOrigin = true;
+        img.onload = function(){
+            ctx.drawImage(img, 0,0, 300,600);
+            canvas.toBlob(function(e){
+                console.log(e);
+            })
+        }
+        img.onerror=function() {
+            alert('loadError');
+        }
+        function change(e){
+            console.log(e.files[0]);
+            var fileReader = new FileReader();
+            fileReader.onload = function() {
+                console.log(fileReader.result.slice(0, 1000));
+            }
+            fileReader.readAsBinaryString(e.files[0]);
+        }
+    </script>
+</body>
+</html>

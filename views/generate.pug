@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+    textarea(id="area", name="", cols="30", rows="10", style="width: 861px;border:1px solid #aaaaaa;box-sizing:border-box;")
+    p
+    div(style="width:861px;height: 50px;")
+        div(style="float:left;") 预览为html显示，不支持描边，与最终生成的有细微差别
+        button(id="submit", style="background-color: #1284e7;color: white;float:right;font-size: 16px;outline:none;border:none;padding: 5px 8px;cursor:pointer;") 生成
+        button(id="preview", style="background-color: #1284e7;color: white;float:right;font-size: 16px;outline:none;border:none;padding: 5px 8px;cursor:pointer;margin-right: 10px;") 预览
+    p
+    div(id="preview-container")
+    div(id="generate-container")
+    // img(src = 'images/img.png')
+    script(src='javascripts/jquery-1.11.0.min.js')
+    script(src='javascripts/generate.js')

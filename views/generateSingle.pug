@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+    h3 1. http://localhost:3000/generateActionSingle/image?goods_image=:goods_image&template_image=:template_image&price=:price&data=:data
+    p 此调用方式结合了海报编辑器
+    p :goods_image为宝贝图片,:template_image为模板图片,:price为价格,:data为海报编辑器保存时所接收的smartLayers值。生成的图片宽高为设计时大小。宝贝图片位置为{x:0,y:0},宽度与海报宽度一致，高自适应。文本就是price值。
+    div(style="border:1px solid red;word-break: break-all;padding:10px;margin-bottom:10px;")  http://localhost:3000/generateActionSingle/image?goods_image=https://img.wonbao.net/wonbao-editor/imgs-105227988/91625989-4de6-48ff-9a1a-7880b501c16a.png&template_image=https://imgs.aixifan.com/o_1dclg8hr4k9nfcs1osm1dbu2uo73.png&price=%E6%99%BA%E8%83%BD%E4%BB%B7%E6%A0%BC%E6%A0%87%E7%AD%BE&data=%7B%22canvasWidth%22%3A800%2C%22canvasHeight%22%3A800%2C%22layers%22%3A%5B%7B%22width%22%3A741%2C%22height%22%3A258%2C%22left%22%3A14%2C%22top%22%3A181.5%2C%22rotateZ%22%3A0%2C%22opacity%22%3A1%2C%22words%22%3A%22%E6%99%BA%E8%83%BD%E4%BB%B7%E6%A0%BC%E6%A0%87%E7%AD%BE%22%2C%22color%22%3A%22%23c7b045%22%2C%22textAlign%22%3A%22center%22%2C%22tag%22%3A%22smartPrice%22%2C%22letterSpacing%22%3A0%2C%22lineHeight%22%3A1.2%2C%22fontSize%22%3A108%2C%22fontFamily%22%3A%22%E7%AB%99%E9%85%B7%E5%B0%8F%E8%96%87LOGO%22%2C%22fontStyle%22%3A%22normal%22%2C%22fontWeight%22%3A%22normal%22%2C%22textDecorate%22%3A%22normal%22%2C%22shadowColor%22%3A%22%23000000%22%2C%22shadowBlur%22%3A0%2C%22strokeStyle%22%3A%22%23000000%22%2C%22lineWidth%22%3A0%2C%22type%22%3A%22text%22%7D%5D%7D
+    img(src="http://localhost:3000/generateActionSingle/image?goods_image=https://img.wonbao.net/wonbao-editor/imgs-105227988/91625989-4de6-48ff-9a1a-7880b501c16a.png&template_image=https://imgs.aixifan.com/o_1dclg8hr4k9nfcs1osm1dbu2uo73.png&price=%E6%99%BA%E8%83%BD%E4%BB%B7%E6%A0%BC%E6%A0%87%E7%AD%BE&data=%7B%22canvasWidth%22%3A800%2C%22canvasHeight%22%3A800%2C%22layers%22%3A%5B%7B%22width%22%3A741%2C%22height%22%3A258%2C%22left%22%3A14%2C%22top%22%3A181.5%2C%22rotateZ%22%3A0%2C%22opacity%22%3A1%2C%22words%22%3A%22%E6%99%BA%E8%83%BD%E4%BB%B7%E6%A0%BC%E6%A0%87%E7%AD%BE%22%2C%22color%22%3A%22%23c7b045%22%2C%22textAlign%22%3A%22center%22%2C%22tag%22%3A%22smartPrice%22%2C%22letterSpacing%22%3A0%2C%22lineHeight%22%3A1.2%2C%22fontSize%22%3A108%2C%22fontFamily%22%3A%22%E7%AB%99%E9%85%B7%E5%B0%8F%E8%96%87LOGO%22%2C%22fontStyle%22%3A%22normal%22%2C%22fontWeight%22%3A%22normal%22%2C%22textDecorate%22%3A%22normal%22%2C%22shadowColor%22%3A%22%23000000%22%2C%22shadowBlur%22%3A0%2C%22strokeStyle%22%3A%22%23000000%22%2C%22lineWidth%22%3A0%2C%22type%22%3A%22text%22%7D%5D%7D")
+    h3 2.http://localhost:3000/generateActionSingle/:data
+    p 此调用方式生成的内容完全由调用的链接参数决定
+    textarea(id="area", name="", cols="30", rows="10", style="width: 861px;border:1px solid #aaaaaa;box-sizing:border-box;")
+    p
+    div(style="width:861px;height: 50px;")
+        div(style="float:left;") 预览为image显示，与最终效果一致
+        button(id="submit", style="background-color: #1284e7;color: white;float:right;font-size: 16px;outline:none;border:none;padding: 5px 8px;cursor:pointer;") 生成
+        // button(id="preview", style="background-color: #1284e7;color: white;float:right;font-size: 16px;outline:none;border:none;padding: 5px 8px;cursor:pointer;margin-right: 10px;") 预览
+    p
+    div(id="preview-container")
+    div(id="generate-container")
+    // img(src = 'images/img.png')
+    script(src='javascripts/jquery-1.11.0.min.js')
+    script(src='javascripts/generateSingle.js')
